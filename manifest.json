@@ -1,0 +1,10 @@
+{
+  "name": "MUSICCAT",
+  "short_name": "MUSICCAT",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101010",
+  "theme_color": "#1db954",
+  "description": "Tu música. Tu estilo.",
+  "icons": []
+}
