@@ -1,195 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MUSICCAT Beta</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #121212;
-      color: white;
-      min-height: 100vh;
-    }
-
-    header {
-      padding: 25px;
-      background: #191919;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      width: 48px;
-      height: 48px;
-      background: #1db954;
-      color: black;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    header h1 {
-      font-size: 24px;
-    }
-
-    main {
-      padding: 25px;
-      padding-bottom: 120px;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    .welcome {
-      background: linear-gradient(135deg, #1db954, #0b6b35);
-      padding: 25px;
-      border-radius: 20px;
-      margin-bottom: 25px;
-    }
-
-    .welcome h2 {
-      color: black;
-      margin-bottom: 8px;
-    }
-
-    .welcome p {
-      color: #062b16;
-    }
-
-    .song {
-      background: #202020;
-      padding: 15px;
-      border-radius: 15px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .cover {
-      width: 55px;
-      height: 55px;
-      background: #333;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-
-    .song-info {
-      flex: 1;
-    }
-
-    .song-info p {
-      color: #aaa;
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    button {
-      border: none;
-      background: #1db954;
-      color: black;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-    }
-
-    nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #181818;
-      display: flex;
-      justify-content: space-around;
-      padding: 15px 5px;
-      border-top: 1px solid #333;
-    }
-
-    nav button {
-      background: transparent;
-      color: white;
-      width: auto;
-      height: auto;
-      border-radius: 0;
-      font-size: 13px;
-    }
-
-    nav button:hover {
-      color: #1db954;
-      transform: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSICCAT Beta V1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:#101010;color:#fff;min-height:100vh;padding-bottom:105px}header{padding:18px 20px;background:#181818;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5}.logo{width:44px;height:44px;border-radius:50%;background:#1db954;color:#000;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:800}header h1{font-size:22px}.page{padding:20px;max-width:700px;margin:auto}.welcome{background:linear-gradient(135deg,#1db954,#08752f);color:#041b0d;padding:24px;border-radius:22px;margin-bottom:22px}.welcome h2{margin-bottom:7px}.search{width:100%;padding:14px 16px;border:0;border-radius:14px;background:#242424;color:#fff;font-size:16px;margin-bottom:20px}.section-title{margin:8px 0 14px}.song{display:flex;align-items:center;gap:14px;background:#1d1d1d;padding:12px;border-radius:16px;margin-bottom:10px}.cover{width:62px;height:62px;border-radius:12px;background:linear-gradient(135deg,#1db954,#063d20);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}.info{flex:1}.info small{display:block;color:#999;margin-top:5px}.play-small,.player-btn{border:0;border-radius:50%;background:#1db954;color:#000;font-weight:bold;cursor:pointer}.play-small{width:44px;height:44px;font-size:17px}.player{background:#181818;border-radius:24px;padding:22px;text-align:center;margin-top:22px}.big-cover{width:min(72vw,280px);height:min(72vw,280px);margin:0 auto 18px;border-radius:22px;background:linear-gradient(135deg,#1db954,#063d20);display:flex;align-items:center;justify-content:center;font-size:100px;box-shadow:0 15px 35px #0008}.big-cover.playing{animation:spin 8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.player h2{margin-bottom:5px}.artist{color:#999;margin-bottom:16px}audio{width:100%;height:42px}.controls{display:flex;justify-content:center;gap:15px;margin-top:16px}.player-btn{width:50px;height:50px;font-size:18px}.player-btn.main{width:60px;height:60px;font-size:22px}.message{display:none;margin-top:16px;background:#242424;padding:12px;border-radius:12px;color:#bbb}.bottom{position:fixed;bottom:0;left:0;right:0;background:#181818;border-top:1px solid #333;display:flex;justify-content:space-around;padding:12px 5px;z-index:10}.bottom button{background:none;border:0;color:#aaa;font-size:12px}.bottom button.active{color:#1db954}.bottom span{display:block;font-size:20px;margin-bottom:3px}.hidden{display:none}
+</style>
 </head>
-
 <body>
-
-  <header>
-    <div class="logo">M</div>
-    <h1>MUSICCAT</h1>
-  </header>
-
-  <main>
-    <div class="welcome">
-      <h2>Bienvenido a MUSICCAT</h2>
-      <p>Tu música. Tu estilo.</p>
-    </div>
-
-    <h2>Tu música</h2>
-
-    <div class="song">
-      <div class="cover">♪</div>
-      <div class="song-info">
-        <strong>Canción de prueba</strong>
-        <p>MUSICCAT</p>
-      </div>
-      <button onclick="playSong()">▶</button>
-    </div>
-
-    <div class="song">
-      <div class="cover">♫</div>
-      <div class="song-info">
-        <strong>Mi primera playlist</strong>
-        <p>MUSICCAT Beta</p>
-      </div>
-      <button onclick="playSong()">▶</button>
-    </div>
-  </main>
-
-  <nav>
-    <button>🏠<br>Inicio</button>
-    <button>🔎<br>Buscar</button>
-    <button>📚<br>Biblioteca</button>
-    <button>⚙️<br>Ajustes</button>
-  </nav>
-
-  <script>
-    function playSong() {
-      alert("Reproductor MUSICCAT próximamente 🎵");
-    }
-  </script>
-
+<header><div class="logo">M</div><h1>MUSICCAT</h1></header>
+<main class="page">
+<section id="home">
+<div class="welcome"><h2>Bienvenido a MUSICCAT</h2><p>Tu música. Tu estilo.</p></div>
+<input class="search" id="search" placeholder="Buscar canciones...">
+<h2 class="section-title">Tu música</h2>
+<div class="song" data-name="Foc Encès"><div class="cover">♪</div><div class="info"><strong>Foc Encès</strong><small>MUSICCAT</small></div><button class="play-small" onclick="playSong()">▶</button></div>
+</section>
+<section class="player" id="player">
+<div class="big-cover" id="cover">♪</div>
+<h2 id="title">Foc Encès</h2><p class="artist">MUSICCAT</p>
+<audio id="audio" preload="metadata"><source src="Foc%20Enc%C3%A8s.mp3" type="audio/mpeg"></audio>
+<div class="controls"><button class="player-btn" onclick="restartSong()">↶</button><button class="player-btn main" id="mainPlay" onclick="togglePlay()">▶</button><button class="player-btn" onclick="toggleMute()">🔊</button></div>
+<div class="message" id="message"></div>
+</section>
+<section id="library" class="hidden"><h2>Biblioteca</h2><p style="color:#999;margin-top:10px">Aquí aparecerán tus canciones y favoritos.</p></section>
+<section id="settings" class="hidden"><h2>Personalización</h2><p style="color:#999;margin-top:10px">Próximamente: fondos, colores y animaciones.</p></section>
+</main>
+<nav class="bottom"><button class="active" onclick="showPage('home',this)"><span>⌂</span>Inicio</button><button onclick="focusSearch()"><span>⌕</span>Buscar</button><button onclick="showPage('library',this)"><span>♫</span>Biblioteca</button><button onclick="showPage('settings',this)"><span>⚙</span>Ajustes</button></nav>
+<script>
+const audio=document.getElementById('audio'),cover=document.getElementById('cover'),mainPlay=document.getElementById('mainPlay'),message=document.getElementById('message');
+function showMessage(text){message.textContent=text;message.style.display='block'}
+function playSong(){audio.play().catch(()=>showMessage('El navegador no pudo iniciar el audio. Pulsa ▶ en el reproductor.'))}
+function togglePlay(){if(audio.paused)playSong();else audio.pause()}
+function restartSong(){audio.currentTime=0;playSong()}
+function toggleMute(){audio.muted=!audio.muted}
+audio.addEventListener('play',()=>{cover.classList.add('playing');mainPlay.textContent='⏸';message.style.display='none'})
+audio.addEventListener('pause',()=>{cover.classList.remove('playing');mainPlay.textContent='▶'})
+audio.addEventListener('ended',()=>{cover.classList.remove('playing');mainPlay.textContent='▶'})
+audio.addEventListener('error',()=>showMessage('No se ha podido cargar Foc Encès.mp3. Comprobaremos el archivo si ocurre esto.'))
+function showPage(id,btn){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.bottom button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function focusSearch(){showPage('home',document.querySelector('.bottom button'));setTimeout(()=>document.getElementById('search').focus(),50)}
+document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('.song').forEach(s=>s.style.display=s.dataset.name.toLowerCase().includes(q)?'flex':'none')})
+</script>
 </body>
 </html>
