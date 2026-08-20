@@ -32,6 +32,7 @@
 <nav class="bottom"><button class="active" onclick="showPage('home',this)"><span>⌂</span>Inicio</button><button onclick="focusSearch()"><span>⌕</span>Buscar</button><button onclick="showPage('library',this)"><span>♫</span>Biblioteca</button><button onclick="showPage('settings',this)"><span>⚙</span>Ajustes</button></nav>
 <script>
 const audio=document.getElementById('audio'),cover=document.getElementById('cover'),mainPlay=document.getElementById('mainPlay'),message=document.getElementById('message');
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}))}
 function showMessage(text){message.textContent=text;message.style.display='block'}
 function playSong(){audio.play().catch(()=>showMessage('El navegador no pudo iniciar el audio. Pulsa ▶ en el reproductor.'))}
 function togglePlay(){if(audio.paused)playSong();else audio.pause()}
